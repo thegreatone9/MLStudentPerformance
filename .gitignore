@@ -208,3 +208,6 @@ __marimo__/
 
 # Data files
 artifacts/
+
+# CatBoost
+catboost_info/
