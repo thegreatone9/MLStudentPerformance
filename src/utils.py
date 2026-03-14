@@ -12,6 +12,11 @@ from sklearn.metrics import r2_score
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Vercel's filesystem is read-only except /tmp.
+# Use /tmp/artifacts for writing model files on Vercel.
+IS_VERCEL = os.environ.get("VERCEL", False)
+ARTIFACTS_DIR = os.path.join("/tmp", "artifacts") if IS_VERCEL else os.path.join(BASE_DIR, "artifacts")
+
 def save_object(file_path, target_obj):
     try:
         dir_path = os.path.dirname(file_path)

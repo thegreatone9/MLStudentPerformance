@@ -2,7 +2,7 @@ import os
 import sys
 from src.exception import CustomException
 from src.logger import logging
-from src.utils import BASE_DIR
+from src.utils import BASE_DIR, ARTIFACTS_DIR
 import pandas as pd
 
 from sklearn.model_selection import train_test_split
@@ -16,9 +16,9 @@ from src.components.model_trainer import ModelTrainerConfig
 
 @dataclass
 class DataIngestionConfig:
-    train_data_path: str = os.path.join(BASE_DIR, 'artifacts', "train.csv")
-    test_data_path: str = os.path.join(BASE_DIR, 'artifacts', "test.csv")
-    raw_data_path: str = os.path.join(BASE_DIR, 'artifacts', "data.csv")
+    train_data_path: str = os.path.join(ARTIFACTS_DIR, "train.csv")
+    test_data_path: str = os.path.join(ARTIFACTS_DIR, "test.csv")
+    raw_data_path: str = os.path.join(ARTIFACTS_DIR, "data.csv")
 
 class DataIngestion:
     def __init__(self):

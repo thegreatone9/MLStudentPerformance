@@ -2,7 +2,7 @@ import sys
 import os
 import pandas as pd
 from src.exception import CustomException
-from src.utils import BASE_DIR, load_object
+from src.utils import BASE_DIR, ARTIFACTS_DIR, load_object
 
 class PredictPipeline:
     def __init__(self):
@@ -10,10 +10,9 @@ class PredictPipeline:
 
     def predict(self,features):
         try:
-            model_path=os.path.join(BASE_DIR, "artifacts", "model.pkl")
-            preprocessor_path=os.path.join(BASE_DIR, 'artifacts','preprocessor.pkl')
+            model_path=os.path.join(ARTIFACTS_DIR, "model.pkl")
+            preprocessor_path=os.path.join(ARTIFACTS_DIR, 'preprocessor.pkl')
 
-            print("Before Loading")
             model = load_object(file_path = model_path)
             preprocessor = load_object(file_path = preprocessor_path)
             print("After Loading")

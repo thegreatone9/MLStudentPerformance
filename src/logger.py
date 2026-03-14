@@ -2,10 +2,10 @@ import logging
 import os
 from datetime import datetime
 
-from src.utils import BASE_DIR
+from src.utils import BASE_DIR, IS_VERCEL
 
 LOG_FILE = f"{datetime.now().strftime('%Y-%m-%d')}.log"
-logs_dir=os.path.join(BASE_DIR, "logs")
+logs_dir = os.path.join("/tmp", "logs") if IS_VERCEL else os.path.join(BASE_DIR, "logs")
 os.makedirs(logs_dir, exist_ok=True)
 
 LOG_FILE_PATH = os.path.join(logs_dir, LOG_FILE)

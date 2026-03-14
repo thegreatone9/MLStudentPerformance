@@ -11,11 +11,11 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 from src.exception import CustomException
 from src.logger import logging
-from src.utils import BASE_DIR, save_object
+from src.utils import BASE_DIR, ARTIFACTS_DIR, save_object
 
 @dataclass
 class DataTransformationConfig:
-    preprocessor_obj_file_path: str = os.path.join(BASE_DIR, 'artifacts', "preprocessor.pkl")
+    preprocessor_obj_file_path: str = os.path.join(ARTIFACTS_DIR, "preprocessor.pkl")
 
 class DataTransformation:
     def __init__(self):

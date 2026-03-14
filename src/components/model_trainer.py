@@ -15,11 +15,11 @@ from sklearn.tree import DecisionTreeRegressor
 from src.exception import CustomException
 from src.logger import logging
 
-from src.utils import BASE_DIR, save_object, evaluate_model
+from src.utils import BASE_DIR, ARTIFACTS_DIR, save_object, evaluate_model
 
 @dataclass
 class ModelTrainerConfig:
-    trained_model_file_path: str = os.path.join(BASE_DIR, 'artifacts', "model.pkl")
+    trained_model_file_path: str = os.path.join(ARTIFACTS_DIR, "model.pkl")
 
 class ModelTrainer:
     def __init__(self):
